@@ -68,12 +68,13 @@ class _MyHomePageState extends State<MyHomePage> {
                             playerAudioController.currentDurationAudioNotifier,
                         builder: (_, value, __) {
                           return Slider(
-                              min: 0,
-                              value: value.inSeconds.toDouble(),
-                              max: playerAudioController
-                                  .totalDurationAudio.inSeconds
-                                  .toDouble(),
-                              onChanged: (value) {});
+                            min: 0,
+                            value: value.inSeconds.toDouble(),
+                            max: playerAudioController
+                                .totalDurationAudio.inSeconds
+                                .toDouble(),
+                            onChanged: playerAudioController.seek,
+                          );
                         }),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

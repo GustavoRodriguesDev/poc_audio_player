@@ -60,6 +60,10 @@ class PlayerAudioController {
     await player.play();
   }
 
+  Future<void> seek(double seconds) async {
+    await player.seek(Duration(seconds: seconds.toInt()));
+  }
+
   Future<void> pause() async {
     await player.pause();
   }
