@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 
 class PlayerAudioController {
   final player = AudioPlayer();
@@ -8,8 +9,8 @@ class PlayerAudioController {
 
   Duration totalDurationAudio = Duration.zero;
   final currentDurationAudioNotifier = ValueNotifier<Duration>(Duration.zero);
-  Future<void> setUrlAudio(String urlAudio) async {
-    final durationAudio = await player.setUrl(urlAudio);
+  Future<void> setAsssetAudio(String asset) async {
+    final durationAudio = await player.setAsset(asset);
     if (durationAudio != null) {
       totalDurationAudio = durationAudio;
     }
@@ -17,6 +18,7 @@ class PlayerAudioController {
   }
 
   Future<void> setLocalPathAudio(String pathAudio) async {
+    JustAudioBackground.init();
     final durationAudio = await player.setUrl(pathAudio);
     if (durationAudio != null) {
       totalDurationAudio = durationAudio;
@@ -60,8 +62,8 @@ class PlayerAudioController {
     await player.play();
   }
 
-  Future<void> seek(double seconds) async {
-    await player.seek(Duration(seconds: seconds.toInt()));
+  Future<void> seek(Duration duration) async {
+    await player.seek(duration);
   }
 
   Future<void> pause() async {
