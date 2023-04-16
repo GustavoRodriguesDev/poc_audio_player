@@ -6,11 +6,11 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Poc Player de Audio',
       debugShowCheckedModeBanner: false,
-    
-      home: PlayerAudio(),
+      theme: ThemeData(useMaterial3: true),
+      home: const PlayerAudio(),
     );
   }
 }

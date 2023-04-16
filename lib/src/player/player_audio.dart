@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../player_audio_controller.dart';
+import 'controller/player_audio_controller.dart';
 import 'widget/player_button_widget.dart';
 import 'widget/progressbar_widget.dart';
 
